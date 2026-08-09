@@ -34,8 +34,8 @@ Run this once. If you run it again it will tell you it has already run and do no
 ## 3. Clone it
 
 ```bash
-git clone https://github.com/<org>/todoboard-yourname.git
-cd todoboard-yourname
+git clone https://github.com/idfmp-innovation-department/todoboard-<yourname>.git
+cd todoboard-<yourname>
 code .
 ```
 
