@@ -10,7 +10,7 @@ Everything here is setup instructions. It gets replaced in issue 1.3 with a real
 
 Click **Use this template → Create a new repository** at the top of this page.
 
-- **Owner** — the same organization this template lives in.
+- **Owner** — the organization - idfmp-innovation-department.
 - **Name** — `todoboard-yourname`, unless your mentor has told you otherwise.
 - **Visibility** — Private.
 
