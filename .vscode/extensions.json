@@ -1,0 +1,28 @@
+{
+  "recommendations": [
+    // --- Required by specific issues -------------------------------------
+    "ritwickdey.LiveServer",                  // 3.2 — serves the static pages before Vite exists
+    "dbaeumer.vscode-eslint",                 // 5.3, 9.6 — lint must be clean at both checkpoints
+    "esbenp.prettier-vscode",                 // 5.3 — installed as a dependency there, this is the editor half
+    "qwtel.sqlite-viewer",                    // 7.5 — opens the .db file to walk through the schema
+    "humao.rest-client",                      // 7.4, 9.3 — .http files instead of curl, and they live in the repo
+
+    // --- Feedback loop ----------------------------------------------------
+    "usernamehw.errorlens",                   // errors inline instead of buried in the Problems panel
+    "streetsidesoftware.code-spell-checker",  // catches typos in identifiers, strings and the README
+
+    // --- Git (Part 1 is entirely this) ------------------------------------
+    "mhutchie.git-graph",                     // the branch picture from Learn Git Branching, on a real repo
+    "eamodio.gitlens",                        // inline blame — who changed this line and why
+
+    // --- Markup and styling (Part 2) --------------------------------------
+    "formulahendry.auto-rename-tag",
+    "pranaygp.vscode-css-peek",               // jump from a class in the HTML to where it is defined
+    "deque-systems.vscode-axe-linter"         // flags the a11y rules 2.2 requires, in the editor
+  ],
+
+  "unwantedRecommendations": {
+    "GitHub.copilot",
+    "GitHub.copilot-chat"
+  ]
+}
