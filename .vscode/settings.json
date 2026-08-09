@@ -1,0 +1,50 @@
+{
+  // ---------------------------------------------------------------------
+  // AI Features
+  // ---------------------------------------------------------------------
+  "chat.disableAIFeatures": true,
+
+  // Belt and braces — these predate the setting above and still work if the
+  // trainee is on an older VS Code build.
+  "github.copilot.enable": { "*": false },
+  "github.copilot.nextEditSuggestions.enabled": false,
+  "chat.commandCenter.enabled": false,
+  "chat.agent.enabled": false,
+  "editor.inlineSuggest.enabled": false,
+  "terminal.integrated.initialHint": false,
+
+  // ---------------------------------------------------------------------
+  // Formatting
+  // ---------------------------------------------------------------------
+
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // LF everywhere. The trainees are on Windows and the reviewer may not be;
+  // this keeps line-ending churn out of every diff.
+  "files.eol": "\n",
+  "files.insertFinalNewline": true,
+  "files.trimTrailingWhitespace": true,
+
+  // ---------------------------------------------------------------------
+  // Editor
+  // ---------------------------------------------------------------------
+
+  "editor.rulers": [100],
+  "editor.tabSize": 2,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+
+  // Use the workspace TypeScript version once one is installed in Part 5,
+  // so the editor and `tsc --noEmit` never disagree about what compiles.
+  "typescript.tsdk": "node_modules/typescript/lib",
+
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/*.db": true
+  }
+}
