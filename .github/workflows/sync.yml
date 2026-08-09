@@ -1,0 +1,50 @@
+name: Sync from template
+
+# Pulls later changes to the program into a repository that has already been
+# bootstrapped: new issues, edited issue text, retitled issues, changed labels
+# and milestones.
+#
+# It never deletes an issue, never closes or reopens one, and by default never
+# touches an issue you have already finished. An issue that exists here but not
+# in the template is reported and left alone.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Preview only — list what would change without changing it"
+        type: boolean
+        default: false
+      include_closed:
+        description: "Also update issues that are already closed"
+        type: boolean
+        default: false
+
+  # Uncomment to check weekly. Note that GitHub disables scheduled workflows in
+  # repositories with no activity for 60 days, which is a plausible state for a
+  # trainee repo mid-program — the manual trigger above is the reliable one.
+  #
+  # schedule:
+  #   - cron: "0 6 * * 1"
+
+permissions:
+  issues: write
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/github-script@v7
+        env:
+          TEMPLATE_REPO: idfmp-innovation-department/onboarding-template
+          MODE: sync
+          DRY_RUN: ${{ inputs.dry_run }}
+          INCLUDE_CLOSED: ${{ inputs.include_closed }}
+        with:
+          github-token: ${{ secrets.TEMPLATE_TOKEN || secrets.GITHUB_TOKEN }}
+          script: |
+            const run = require('./.github/scripts/sync-issues.cjs')
+            await run({ github, context, core })
